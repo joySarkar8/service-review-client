@@ -1,5 +1,6 @@
 import React from 'react';
 import About from '../About/About';
+import Portfolio from '../Portfolio/Portfolio';
 import Slider from '../Slider/Slider';
 
 const Home = () => {
@@ -7,6 +8,7 @@ const Home = () => {
         <div>
             <Slider></Slider>
             <About></About>
+            <Portfolio></Portfolio>
         </div>
     );
 };
