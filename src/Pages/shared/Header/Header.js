@@ -11,7 +11,7 @@ import logo from './../../../assets/logo.png';
 
 const Header = () => {
     return (
-        <Navbar className='shadow mb-5' style={{ minHeight: '4rem' }} collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar className='shadow' style={{ minHeight: '4rem' }} collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
                 <Navbar.Brand>
                     <img src={logo} alt="" />
