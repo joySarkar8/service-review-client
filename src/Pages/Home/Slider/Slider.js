@@ -8,7 +8,7 @@ import img4 from '../../../assets/sliderImg/bg4.jpg'
 function Slider() {
     return (
         <Carousel fade>
-            <Carousel.Item className='vh-100'>
+            <Carousel.Item>
                 <img
                     className="d-block w-100"
                     src={img1}
@@ -20,7 +20,7 @@ function Slider() {
                 </Carousel.Caption>
             </Carousel.Item>
 
-            <Carousel.Item className='vh-100'>
+            <Carousel.Item>
                 <img
                     className="d-block w-100"
                     src={img2}
@@ -33,7 +33,7 @@ function Slider() {
                 </Carousel.Caption>
             </Carousel.Item>
 
-            <Carousel.Item className='vh-100'>
+            <Carousel.Item>
                 <img
                     className="d-block w-100"
                     src={img3}
@@ -48,7 +48,7 @@ function Slider() {
                 </Carousel.Caption>
             </Carousel.Item>
 
-            <Carousel.Item className='vh-100'>
+            <Carousel.Item>
                 <img
                     className="d-block w-100"
                     src={img4}
