@@ -2,8 +2,8 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <div>
-            <h2>this is footer</h2>
+        <div className='p-5'>
+            <p className='text-center text-white mb-0'>Copyright © 2022 Jhon Smith Photography</p>
         </div>
     );
 };
