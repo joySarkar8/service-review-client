@@ -1,32 +1,35 @@
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import { GoogleAuthProvider } from 'firebase/auth';
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 
 const Login = () => {
 
-    const [error, setError] = useState('')
-    // const { providerLogin, signIn } = useContext();
-    const navigate = useNavigate();
-    const location = useLocation();
+    const {googleProviderLogin, login} = useContext(AuthContext);
 
-    const from = location.state?.from?.pathname || '/';
+    // const [error, setError] = useState('')
+    // const navigate = useNavigate();
+    // const location = useLocation();
+
+    // const from = location.state?.from?.pathname || '/';
 
     const googleProvider = new GoogleAuthProvider();
-    const gitProvider = new GithubAuthProvider();
+
 
 
 
     const handleGoogleSignIn = () => {
-        // providerLogin(googleProvider)
-        //     .then(result => {
-        //         const user = result.user;
-        //         user && navigate(from, { replace: true })
-        //         // toast.success('Google Login Successfull!')
-        //     })
-        //     .catch(e => {
-        //         // toast.error(e.message);
-        //     })
+        googleProviderLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                // user && navigate(from, { replace: true })
+                // toast.success('Google Login Successfull!')
+                console.log(user);
+            })
+            .catch(e => {
+                console.error(e.message);
+            })
 
     }
 
@@ -68,7 +71,7 @@ const Login = () => {
             </form>
             <hr className='mb-4 text-white ' />
             <button onClick={handleGoogleSignIn} className='btn btn-danger shadow mb-3' style={{ width: '400px', padding: '8px 16px' }}>SIGN IN WITH GOOGLE</button>
-            <p className='text-danger'>{error}</p>
+            {/* <p className='text-danger'>{error}</p> */}
             <p className='text-white'>New member? <Link to='/register'>Register</Link> here.</p>
         </div>
 
