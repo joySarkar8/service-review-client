@@ -1,8 +1,8 @@
 import React from 'react';
 import { Button, Card } from 'react-bootstrap';
 
-const MyReviewCard = ({review}) => {
-    const {titleName, customerName, message, serviceName} = review;
+const MyReviewCard = ({review, handleDelete}) => {
+    const {titleName, customerName, message, serviceName, _id} = review;
     return (
         <Card className='' border="info" style={{ width: '18rem', backgroundColor: '#081329' }}>
             <Card.Header>Service Name: {serviceName}</Card.Header>
@@ -15,7 +15,7 @@ const MyReviewCard = ({review}) => {
             </Card.Body>
             <div className='d-flex justify-content-evenly mb-4 mt-2'>
             <Button variant="success">Update</Button>
-            <Button variant="warning" className='text-decoration-underline'>Delete</Button>
+            <Button onClick={() => handleDelete(_id)} variant="warning" className='text-decoration-underline'>Delete</Button>
             </div>
         </Card>
     );
