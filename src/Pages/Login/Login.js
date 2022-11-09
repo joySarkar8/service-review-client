@@ -15,17 +15,7 @@ const Login = () => {
     const googleProvider = new GoogleAuthProvider();
     const gitProvider = new GithubAuthProvider();
 
-    const handleGithubSignIn = () => {
-        // providerLogin(gitProvider)
-        //     .then(result => {
-        //         const user = result.user;
-        //         user && navigate(from, { replace: true })
-        //         // toast.success('Github Login Successfull!')
-        //     })
-        //     .catch(e => {
-        //         // toast.error(e.message);
-        //     })
-    }
+
 
     const handleGoogleSignIn = () => {
         // providerLogin(googleProvider)
@@ -78,7 +68,6 @@ const Login = () => {
             </form>
             <hr className='mb-4 text-white ' />
             <button onClick={handleGoogleSignIn} className='btn btn-danger shadow mb-3' style={{ width: '400px', padding: '8px 16px' }}>SIGN IN WITH GOOGLE</button>
-            <button onClick={handleGithubSignIn} className='btn btn-success shadow mb-4' style={{ width: '400px', padding: '8px 16px' }}>SIGN IN WITH GITHUB</button>
             <p className='text-danger'>{error}</p>
             <p className='text-white'>New member? <Link to='/register'>Register</Link> here.</p>
         </div>

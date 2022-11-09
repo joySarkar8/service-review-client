@@ -7,11 +7,11 @@ import logo from './../../../assets/logo.png';
 
 
 
-
+const color = '#03031824';
 
 const Header = () => {
     return (
-        <Navbar className='shadow' style={{ minHeight: '4rem' }} collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar className='shadow' style={{ minHeight: '4rem' }} collapseOnSelect expand="lg" bg={color} variant="dark">
             <Container>
                 <Navbar.Brand>
                     <img src={logo} alt="" />
@@ -20,7 +20,7 @@ const Header = () => {
                 <Navbar.Collapse className='justify-content-end' id="responsive-navbar-nav">
                     <Nav className='align-items-center'>
                         <NavLink to="/home" className='text-decoration-none me-4 text-white'>Home</NavLink>
-                        <NavLink to="/courses" className='text-decoration-none me-4 text-white'>Add Service</NavLink>
+                        <NavLink to="/addservice" className='text-decoration-none me-4 text-white'>Add Service</NavLink>
                         <NavLink to="/blog" className='text-decoration-none me-4 text-white'>Blog</NavLink>
                         <NavLink to="/login" className='text-decoration-none me-4 text-white'>login</NavLink>
                     </Nav>

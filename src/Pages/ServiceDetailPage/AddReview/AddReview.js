@@ -6,7 +6,7 @@ const AddReview = () => {
     const { _id, service_name, price, image_url, details } = data;
     // console.log(data);
 
-    const handlePlaceOrder = event => {
+    const handleReview = event => {
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
@@ -44,7 +44,7 @@ const AddReview = () => {
         <div className='container text-white p-4 mt-5' style={{ background: '#03031824' }}>
             <h2 className='mb-4'>Add Review</h2>
 
-            <form onSubmit={handlePlaceOrder}>
+            <form onSubmit={handleReview}>
                 <div className='row mb-3'>
                     <div className='col-lg-6 mb-3'>
                         <input name='name' type="text" placeholder="Your Name" className="input input-bordered w-100 p-2" />
