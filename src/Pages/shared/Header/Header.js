@@ -19,9 +19,10 @@ const Header = () => {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse className='justify-content-end' id="responsive-navbar-nav">
                     <Nav className='align-items-center'>
-                        <NavLink to="/" className='text-decoration-none me-4 text-white'>Home</NavLink>
+                        <NavLink to="/home" className='text-decoration-none me-4 text-white'>Home</NavLink>
                         <NavLink to="/courses" className='text-decoration-none me-4 text-white'>Add Service</NavLink>
                         <NavLink to="/blog" className='text-decoration-none me-4 text-white'>Blog</NavLink>
+                        <NavLink to="/login" className='text-decoration-none me-4 text-white'>login</NavLink>
                     </Nav>
 
                 </Navbar.Collapse>
