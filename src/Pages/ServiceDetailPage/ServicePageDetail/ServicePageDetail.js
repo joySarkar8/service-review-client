@@ -3,8 +3,8 @@ import { Button, Card } from 'react-bootstrap';
 import { useLoaderData } from 'react-router-dom';
 import AddReview from '../AddReview/AddReview';
 import Review from '../Review/Review';
-// import Review from '../../../Pages/ServiceDetailPage/Review/Review';
-// import AddReview from '../../../Pages/ServiceDetailPage/AddReview/AddReview';
+
+
 
 
 
@@ -29,8 +29,6 @@ const ServicePageDetail = () => {
             </div>
             <Review></Review>
             <AddReview></AddReview>
-
-            <h1>joy</h1>
         </>
 
     );

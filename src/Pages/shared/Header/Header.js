@@ -42,7 +42,7 @@ const Header = () => {
                         {
                             user?.uid &&
                             
-                            <NavLink to="/faq" className='text-decoration-none text-white me-4'>My reviews</NavLink>
+                            <NavLink to="/myreviews" className='text-decoration-none text-white me-4'>My reviews</NavLink>
                         }
 
                         <NavLink to="/blog" className='text-decoration-none me-4 text-white'>Blog</NavLink>

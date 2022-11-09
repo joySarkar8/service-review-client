@@ -1,17 +1,24 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const AddReview = () => {
     const { data } = useLoaderData();
     const { _id, service_name, price, image_url, details } = data;
+    const {user} = useContext(AuthContext);
     // console.log(data);
 
     const handleReview = event => {
         event.preventDefault();
         const form = event.target;
-        const name = form.name.value;
+        const name = user?.displayName;
+        const email = user?.email || 'unregisterd';
         const title = form.title.value;
         const message = form.message.value;
+        const photoURL = user?.photoURL;
+        const serviceName = service_name;
+
+
 
         
         const review = {
@@ -19,7 +26,12 @@ const AddReview = () => {
             titleName: title,
             customerName: name,
             message,
+            email,
+            photoURL,
+            serviceName
         }
+
+        // console.log(review);
         
         fetch('http://localhost:5000/reviews', {
             method: 'POST',
@@ -47,7 +59,7 @@ const AddReview = () => {
             <form onSubmit={handleReview}>
                 <div className='row mb-3'>
                     <div className='col-lg-6 mb-3'>
-                        <input name='name' type="text" placeholder="Your Name" className="input input-bordered w-100 p-2" />
+                        <input name='name' defaultValue={user?.displayName} readOnly type="text" placeholder="Your Name" className="input input-bordered w-100 p-2" />
                     </div>
                     <div className='col-lg-6'>
                         <input name='title' type="text" placeholder="Title" className="p-2 input input-bordered w-100" />
