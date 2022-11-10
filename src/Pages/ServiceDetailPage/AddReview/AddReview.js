@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 
 const AddReview = () => {
     const { data } = useLoaderData();
-    const { _id, service_name, price, image_url, details } = data;
+    const { _id, service_name } = data;
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
     
