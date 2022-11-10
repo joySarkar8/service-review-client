@@ -35,15 +35,15 @@ const Header = () => {
 
                         {
                             user?.uid &&
-                            
                             <NavLink to="/addservice" className='text-decoration-none me-4 text-white'>Add Service</NavLink>
                         }
+                        
 
                         {
                             user?.uid &&
-                            
                             <NavLink to="/myreviews" className='text-decoration-none text-white me-4'>My reviews</NavLink>
                         }
+                        
 
                         <NavLink to="/blog" className='text-decoration-none me-4 text-white'>Blog</NavLink>
                         {

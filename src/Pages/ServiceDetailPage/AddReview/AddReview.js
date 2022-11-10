@@ -1,11 +1,15 @@
 import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import { useNavigate } from 'react-router-dom';
+import { toast } from "react-toastify";
 
 const AddReview = () => {
     const { data } = useLoaderData();
     const { _id, service_name, price, image_url, details } = data;
-    const {user} = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
+    
     // console.log(data);
 
     const handleReview = event => {
@@ -18,9 +22,10 @@ const AddReview = () => {
         const photoURL = user?.photoURL;
         const serviceName = service_name;
 
+        const time = new Date().toLocaleTimeString();
+        console.log(time);
 
 
-        
         const review = {
             service: _id,
             titleName: title,
@@ -32,26 +37,31 @@ const AddReview = () => {
         }
 
         // console.log(review);
-        
-        fetch('http://localhost:5000/reviews', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(review)
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                if (data.data.acknowledged) {
-                    alert('Review placed successfully')
-                    form.reset();
-                }
+
+        if (user) {
+            fetch('https://photography-server-nu.vercel.app/reviews', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(review)
             })
-            .catch(er => console.error(er));
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    if (data.data.acknowledged) {
+                        alert('Review placed successfully')
+                        form.reset();
+                    }
+                })
+                .catch(er => console.error(er));
+        } else {
+            toast.success('Please Login First!');
+            navigate('/login')
+        }
     }
 
-    
+
     return (
         <div className='container text-white p-4 mt-5' style={{ background: '#03031824' }}>
             <h2 className='mb-4'>Add Review</h2>
@@ -62,10 +72,10 @@ const AddReview = () => {
                         <input name='name' defaultValue={user?.displayName} readOnly type="text" placeholder="Your Name" className="input input-bordered w-100 p-2" />
                     </div>
                     <div className='col-lg-6'>
-                        <input name='title' type="text" placeholder="Title" className="p-2 input input-bordered w-100" />
+                        <input name='title' type="text" placeholder="Title*" className="p-2 input input-bordered w-100" />
                     </div>
                 </div>
-                <textarea style={{ height: '140px' }} name='message' className="w-100 mb-3 p-3" placeholder="Your Message" required></textarea>
+                <textarea style={{ height: '140px' }} name='message' className="w-100 mb-3 p-3" placeholder="Your Message*" required></textarea>
 
                 <input className='btn btn-success' type='submit' value="Post Review"></input>
             </form>

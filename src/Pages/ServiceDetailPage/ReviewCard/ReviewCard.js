@@ -4,7 +4,7 @@ import { Card } from 'react-bootstrap';
 
 const ReviewCard = ({ review }) => {
     const { titleName, customerName, message } = review;
-    console.log(review);
+    // console.log(review);
     return (
         <Card border="info" style={{ width: '18rem', backgroundColor: '#081329', minHeight: '200px' }}>
             <div className='d-flex justify-content-between align-items-center ps-3 pe-3 pt-2 pb-0'>

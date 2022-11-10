@@ -10,7 +10,7 @@ const EditReview = () => {
     
     // get id for review item for edit
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews/${id}`)
+        fetch(`https://photography-server-nu.vercel.app/reviews/${id}`)
             .then((res) => res.json())
             .then((data) => {
                 if (data.success) {
@@ -40,7 +40,7 @@ const EditReview = () => {
 
         console.log(review);
 
-        fetch(`http://localhost:5000/myreviews/${id}`, {
+        fetch(`https://photography-server-nu.vercel.app/myreviews/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'

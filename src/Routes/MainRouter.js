@@ -9,6 +9,7 @@ import EditReview from "../Pages/MyReviews/EditReview";
 import MyReviews from "../Pages/MyReviews/MyReviews";
 import Register from "../Pages/Register/Register";
 import ServicePageDetail from "../Pages/ServiceDetailPage/ServicePageDetail/ServicePageDetail";
+import PrivateRoute from "./PrivateRouter";
 
 
 
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
             {
                 path: '/services',
                 element: <AllServices></AllServices>,
-                loader : () => fetch('http://localhost:5000/services')
+                loader : () => fetch('https://photography-server-nu.vercel.app/services')
             },
             {
                 path: '/login',
@@ -42,20 +43,20 @@ const router = createBrowserRouter([
             {
                 path: '/blog',
                 element: <Blog></Blog>,
-                loader : () => fetch('http://localhost:5000/blogs')
+                loader : () => fetch('https://photography-server-nu.vercel.app/blogs')
             },
             {
                 path: '/services/:id',
-                loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`),
+                loader: ({params}) => fetch(`https://photography-server-nu.vercel.app/services/${params.id}`),
                 element: <ServicePageDetail></ServicePageDetail>,
             },
             {
                 path: '/addservice',
-                element: <AddService></AddService>
+                element: <PrivateRoute><AddService></AddService></PrivateRoute>
             },
             {
                 path: '/myreviews',
-                element: <MyReviews></MyReviews>
+                element: <PrivateRoute><MyReviews></MyReviews></PrivateRoute>
             },
             {
                 path: '/myreviews/edit/:id',

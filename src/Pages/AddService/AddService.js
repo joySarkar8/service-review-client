@@ -1,4 +1,6 @@
 import React from 'react';
+import { toast } from "react-toastify";
+
 
 const AddService = () => {
 
@@ -21,7 +23,7 @@ const AddService = () => {
 
         // console.log(AddService);
 
-        fetch('http://localhost:5000/addservice', {
+        fetch('https://photography-server-nu.vercel.app/addservice', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -32,11 +34,11 @@ const AddService = () => {
             .then(data => {
                 console.log(data);
                 if (data.data.acknowledged) {
-                    alert('Service Added successfully')
+                    toast.success('Service Added successfully')
                     form.reset();
                 }
             })
-            .catch(er => console.error(er));
+            .catch(er => toast.error(er));
 
     }
 
@@ -49,17 +51,17 @@ const AddService = () => {
             <form onSubmit={handleAddService}>
                 <div className='row mb-3'>
                     <div className='col-lg-6 mb-3'>
-                        <input name='service' type="text" placeholder="Service Name" required className="input input-bordered w-100 p-2" />
+                        <input name='service' type="text" placeholder="Service Name*" required className="input input-bordered w-100 p-2" />
                     </div>
                     <div className='col-lg-6 mb-3'>
-                        <input name='price' type="text" placeholder="Price" required className="input input-bordered w-100 p-2" />
+                        <input name='price' type="text" placeholder="Price*" required className="input input-bordered w-100 p-2" />
                     </div>
                     <div className='col-lg-6 mb-3'>
-                        <input name='image' type="text" placeholder="Image URL" required className="input input-bordered w-100 p-2" />
+                        <input name='image' type="text" placeholder="Image URL*" required className="input input-bordered w-100 p-2" />
                     </div>
                     
                 </div>
-                <textarea style={{ height: '140px' }} name='description' className="w-100 mb-3 p-3" required placeholder="Description"></textarea>
+                <textarea style={{ height: '140px' }} name='description' className="w-100 mb-3 p-3" required placeholder="Description*"></textarea>
 
                 <input className='btn btn-success' type='submit' value="Add Service"></input>
             </form>

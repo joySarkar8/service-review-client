@@ -6,11 +6,11 @@ const MyReviews = () => {
     const {user} = useContext(AuthContext);
     const [reviews, setReviews] = useState([]);
 
-    
+    // console.log(reviews);
     
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myreviews?email=${user?.email}`)
+        fetch(`https://photography-server-nu.vercel.app/myreviews?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setReviews(data.data))
     }, [user?.email])
@@ -19,7 +19,7 @@ const MyReviews = () => {
         // console.log(id);
         const proceed = window.confirm('Continue to DELETE this review ple click ok')
         if (proceed) {
-            fetch(`http://localhost:5000/myreviews/${id}`, {
+            fetch(`https://photography-server-nu.vercel.app/myreviews/${id}`, {
                 method: 'DELETE',
             })
             .then(res => res.json())
@@ -40,7 +40,11 @@ const MyReviews = () => {
     // console.log(reviews);
     return (
         <div className='container text-white p-3 mt-5' style={{ background: '#03031824' }}>
-            <h2 className='text-center mt-3 mb-4'>My Reviews</h2>
+            {
+                reviews.length ? <h2 className='text-center mt-3 mb-4'>Reviews</h2>
+                :
+                <h2 className='text-center mt-3 mb-4'>No reviews were added</h2>
+            }
             <div className=' d-flex flex-wrap justify-content-center mb-5' style={{ gap: '40px' }}>
                 {
                     reviews.map(review => <MyReviewCard

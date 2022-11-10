@@ -7,10 +7,10 @@ const Service = () => {
     const [servicesData, setServicesData] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/services?limit=3')
-        .then(res => res.json())
-        .then(data => setServicesData(data.data))
-    },[]);
+        fetch('https://photography-server-nu.vercel.app/services?limit=3')
+            .then(res => res.json())
+            .then(data => setServicesData(data.data))
+    }, []);
 
     // console.log(servicesData);
     return (
@@ -18,10 +18,14 @@ const Service = () => {
             <h1 className='text-center mb-5'>Services</h1>
             <div className=' d-flex flex-wrap justify-content-center mb-5' style={{ gap: '40px' }}>
                 {
-                    servicesData?.map(ser => <ServiceCard
-                    key={ser._id}
-                    ser={ser}
+                    servicesData.length ? servicesData?.map(ser => <ServiceCard
+                        key={ser._id}
+                        ser={ser}
                     ></ServiceCard>)
+                        :
+                        <div className="spinner-border text-light" role="status">
+                            <span className="visually-hidden">Loading...</span>
+                        </div>
                 }
             </div>
             <div className='text-center'>
