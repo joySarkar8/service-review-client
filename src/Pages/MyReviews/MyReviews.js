@@ -6,6 +6,9 @@ const MyReviews = () => {
     const {user} = useContext(AuthContext);
     const [reviews, setReviews] = useState([]);
 
+    
+    
+
     useEffect(() => {
         fetch(`http://localhost:5000/myreviews?email=${user?.email}`)
             .then(res => res.json())
@@ -31,30 +34,10 @@ const MyReviews = () => {
         }
     };
 
-    const handleUpdate = id => {
-        fetch(`https://server-car-taupe.vercel.app/orders/${id}`, {
-            method: 'PATCH',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify({status: 'Approved'})
-        })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            if (data.modifiedCount > 0) {
-                const remaing = reviews.filter(odr => odr._id !== id);
-                const approving = reviews.find(odr => odr._id === id);
-                approving.status = 'Approved';
-                console.log(approving);
-                const newOrders = [...remaing, approving];
-                setReviews(newOrders)
-            }
-        })
-    }
 
 
-    console.log(reviews);
+
+    // console.log(reviews);
     return (
         <div className='container text-white p-3 mt-5' style={{ background: '#03031824' }}>
             <h2 className='text-center mt-3 mb-4'>My Reviews</h2>
@@ -64,7 +47,6 @@ const MyReviews = () => {
                         key={review._id}
                         review={review}
                         handleDelete={handleDelete}
-                        handleUpdate={handleUpdate}
                     ></MyReviewCard>)
                 }
             </div>

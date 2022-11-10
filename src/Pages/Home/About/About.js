@@ -12,7 +12,7 @@ const About = () => {
                 <Col lg='7'>
                     <Row>
                         <h1>Life is an adventure. Capture every minute.</h1>
-                        <h3 className='mb-4 text-white-50'>I'm Kaylee, a street and nature photographer. My passion is taking photos of the most stunning places around the world.</h3>
+                        <h3 className='mb-4 text-white-50'>I'm John Smith, a street and nature photographer. My passion is taking photos of the most stunning places around the world.</h3>
                         <Col lg='6'>
                             <h2>A Little About Me</h2>
                             <p className='text-white-50'>Nulla vitae elit libero, a pharetra augue. Dapuis mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Sed posuere consectetur est at lobortis. Fusce dapibus, tellus ac cursus.</p>

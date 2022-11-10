@@ -49,17 +49,17 @@ const AddService = () => {
             <form onSubmit={handleAddService}>
                 <div className='row mb-3'>
                     <div className='col-lg-6 mb-3'>
-                        <input name='service' type="text" placeholder="Service Name" className="input input-bordered w-100 p-2" />
+                        <input name='service' type="text" placeholder="Service Name" required className="input input-bordered w-100 p-2" />
                     </div>
                     <div className='col-lg-6 mb-3'>
-                        <input name='price' type="text" placeholder="Price" className="input input-bordered w-100 p-2" />
+                        <input name='price' type="text" placeholder="Price" required className="input input-bordered w-100 p-2" />
                     </div>
                     <div className='col-lg-6 mb-3'>
-                        <input name='image' type="text" placeholder="Image URL" className="input input-bordered w-100 p-2" />
+                        <input name='image' type="text" placeholder="Image URL" required className="input input-bordered w-100 p-2" />
                     </div>
                     
                 </div>
-                <textarea style={{ height: '140px' }} name='description' className="w-100 mb-3 p-3" placeholder="Description"></textarea>
+                <textarea style={{ height: '140px' }} name='description' className="w-100 mb-3 p-3" required placeholder="Description"></textarea>
 
                 <input className='btn btn-success' type='submit' value="Add Service"></input>
             </form>

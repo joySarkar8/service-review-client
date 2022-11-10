@@ -20,10 +20,12 @@ const ServicePageDetail = () => {
                     <Card.Body>
                         <Card.Title>{service_name}</Card.Title>
                         <Card.Text>
-                            Some quick example text to build on the card title and make up the
-                            bulk of the card's content.
+                            {details}
                         </Card.Text>
-                        <Button variant="primary">Go somewhere</Button>
+                        <div className='d-flex justify-content-between'>
+                        <Button variant="success">Purchase</Button>
+                        <h5>Price: ${price}</h5>
+                        </div>
                     </Card.Body>
                 </Card>
             </div>
