@@ -29,6 +29,28 @@ const MyReviews = () => {
                 }
             })
         }
+    };
+
+    const handleUpdate = id => {
+        fetch(`https://server-car-taupe.vercel.app/orders/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({status: 'Approved'})
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if (data.modifiedCount > 0) {
+                const remaing = reviews.filter(odr => odr._id !== id);
+                const approving = reviews.find(odr => odr._id === id);
+                approving.status = 'Approved';
+                console.log(approving);
+                const newOrders = [...remaing, approving];
+                setReviews(newOrders)
+            }
+        })
     }
 
 
@@ -42,6 +64,7 @@ const MyReviews = () => {
                         key={review._id}
                         review={review}
                         handleDelete={handleDelete}
+                        handleUpdate={handleUpdate}
                     ></MyReviewCard>)
                 }
             </div>
