@@ -4,7 +4,7 @@ import ReviewCard from '../ReviewCard/ReviewCard'
 
 
 
-const Review = () => {
+const Review = ({updateReview}) => {
 
     const { data } = useLoaderData();
     const [reviews, setReviews] = useState([]);
@@ -13,7 +13,8 @@ const Review = () => {
         fetch(`https://photography-server-nu.vercel.app/reviews?service=${data?._id}`)
             .then(res => res.json())
             .then(data => setReviews(data.data))
-    }, [data?._id])
+    }, [data?._id, updateReview])
+    // console.log(updateReview);
 
     // console.log(reviews);
     return (

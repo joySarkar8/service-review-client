@@ -4,7 +4,7 @@ import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import { useNavigate } from 'react-router-dom';
 import { toast } from "react-toastify";
 
-const AddReview = () => {
+const AddReview = ({setUpdateReview}) => {
     const { data } = useLoaderData();
     const { _id, service_name } = data;
     const { user } = useContext(AuthContext);
@@ -50,8 +50,9 @@ const AddReview = () => {
                 .then(data => {
                     console.log(data);
                     if (data.data.acknowledged) {
-                        alert('Review placed successfully')
+                        // alert('Review placed successfully')
                         form.reset();
+                        setUpdateReview(data.data.insertedId)
                     }
                 })
                 .catch(er => console.error(er));

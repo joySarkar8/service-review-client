@@ -10,7 +10,11 @@ const MyReviews = () => {
     
 
     useEffect(() => {
-        fetch(`https://photography-server-nu.vercel.app/myreviews?email=${user?.email}`)
+        fetch(`https://photography-server-nu.vercel.app/myreviews?email=${user?.email}`, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+        })
             .then(res => res.json())
             .then(data => setReviews(data.data))
     }, [user?.email])
