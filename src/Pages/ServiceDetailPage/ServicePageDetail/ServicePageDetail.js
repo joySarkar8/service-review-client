@@ -14,13 +14,13 @@ const ServicePageDetail = () => {
     const { service_name, price, image_url, details } = data;
     const [updateReview, setUpdateReview] = useState('');
 
-    const params = useParams();
+    // const params = useParams();
 
-    useEffect( () => {
-        fetch(`https://photography-server-nu.vercel.app/services/${params.id}`)
-        .then(res => res.json())
-        .then(data => console.log(data))
-    } ,[params.id])
+    // useEffect( () => {
+    //     fetch(`https://photography-server-nu.vercel.app/services/${params.id}`)
+    //     .then(res => res.json())
+    //     .then(data => console.log(data))
+    // } ,[params.id])
 
 
     return (

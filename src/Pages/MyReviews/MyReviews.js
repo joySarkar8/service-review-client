@@ -5,6 +5,7 @@ import MyReviewCard from './MyReviewCard';
 const MyReviews = () => {
     const {user} = useContext(AuthContext);
     const [reviews, setReviews] = useState([]);
+    const [loader, setLoader] = useState(true);
 
     // console.log(reviews);
     
