@@ -8,6 +8,7 @@ const Review = ({updateReview}) => {
 
     const { data } = useLoaderData();
     const [reviews, setReviews] = useState([]);
+    
 
     useEffect(() => {
         fetch(`https://photography-server-nu.vercel.app/reviews?service=${data?._id}`)

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { useEffect } from 'react';
 import { Button, Card } from 'react-bootstrap';
-import { useLoaderData } from 'react-router-dom';
+import {  useLoaderData, useParams } from 'react-router-dom';
 import AddReview from '../AddReview/AddReview';
 import Review from '../Review/Review';
 
@@ -12,7 +13,15 @@ const ServicePageDetail = () => {
     const { data } = useLoaderData();
     const { service_name, price, image_url, details } = data;
     const [updateReview, setUpdateReview] = useState('');
-    // console.log(updateReview);
+
+    const params = useParams();
+
+    useEffect( () => {
+        fetch(`https://photography-server-nu.vercel.app/services/${params.id}`)
+        .then(res => res.json())
+        .then(data => console.log(data))
+    } ,[params.id])
+
 
     return (
         <>
@@ -34,6 +43,7 @@ const ServicePageDetail = () => {
             <Review updateReview={updateReview}></Review>
             <AddReview setUpdateReview={setUpdateReview}></AddReview>
         </>
+        
 
     );
 };
